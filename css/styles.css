@@ -20,6 +20,9 @@ video {
 	max-width: 100%;
 }
 
+.video_div:-ms-fullscreen {
+	max-width: 100%;
+}
 
 
 /* PROGRESS BARS

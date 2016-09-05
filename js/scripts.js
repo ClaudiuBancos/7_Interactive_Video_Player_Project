@@ -158,20 +158,22 @@ $captions_icon.click(function() {
 
 
 /* Full Screen Button */
-var fullScreen = document.fullScreen || document.mozFullScreen || document.webkitFullscreen;
+var $isFullScreen = false;
 
 $fullScreen.click(function() {
-	if (fullScreen) {
-		if(document.exitFullscreen) {
-			document.exitFullscreen();
-		} else if(document.mozCancelFullScreen) {
+	if ($isFullScreen === true) {
+		if(document.webkitFullscreenEnabled === true && document.webkitFullscreenElement !== null) {
+			document.webkitCancelFullScreen();
+		}
+		if(document.msFullscreenEnabled === true && document.msFullscreenElement !== null) {
+			document.msExitFullscreen();
+		}
+		if(document.mozFullScreen === true) {
 			document.mozCancelFullScreen();
-		} else if(document.webkitExitFullscreen) {
-			document.webkitExitFullscreen();
 		}
 	} else {
-		if ($$videoDiv.requestFullscreen) {
-	    	$$videoDiv.requestFullscreen();
+		if ($$videoDiv.msRequestFullscreen) {
+	    	$$videoDiv.msRequestFullscreen();
 	    } else if ($$videoDiv.mozRequestFullScreen) {
 	    	$$videoDiv.mozRequestFullScreen();
 	    } else if ($$videoDiv.webkitRequestFullscreen) {
@@ -181,6 +183,31 @@ $fullScreen.click(function() {
 });
 
 
+/* On Full Screen Change */
+document.onmozfullscreenchange = function(e) {
+	if (document.mozFullScreen === true) {
+		$isFullScreen = true;
+	} else {
+		$isFullScreen = false;
+	}
+};
+
+document.onwebkitfullscreenchange = function(e) {
+	if (document.webkitFullscreenElement !== null) {
+		$isFullScreen = true;
+	} else {
+		$isFullScreen = false;
+	}
+};
+
+document.onmsfullscreenchange = function(e) {
+	console.log("FULL SCREEN CHANGE");
+	if (document.msFullscreenElement !== null) {
+		$isFullScreen = true;
+	} else {
+		$isFullScreen = false;
+	}
+};
 
 
 
@@ -303,7 +330,6 @@ $video.on("timeupdate", function() {					// Yes, this function only works for vi
 		$timestamp.text("0:" + $currentTime + " / 0:" + $duration);
 	}
 	$$progress_bar.value = $currentTime;
-	
 	$activeCueID = $$captions.activeCues[0].id;
 	$currentCue = "C" + $activeCueID;
 	if ($previousCue !== $currentCue) {
