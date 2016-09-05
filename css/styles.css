@@ -1,0 +1,312 @@
+* {
+	box-sizing: border-box;
+}
+
+/* VIDEO
+=========*/
+
+video {
+	width: 100%;
+}
+
+.video_div {
+	position: relative;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.video_div:-webkit-full-screen {
+	max-width: 100%;
+}
+
+
+
+/* PROGRESS BARS
+=================*/
+
+
+.progress_and_controls {
+	position: absolute;
+	height: 26px;
+	bottom: 26px;
+	left: 0px;
+	
+	width: 100%;
+	padding-left: 0.5%;
+}
+
+.progress_bars_div {
+	position: relative;
+	display: block;
+}
+
+.buffering_bar {
+	-webkit-appearance: none;
+	display: inline-block;
+	background: rgba(100,100,100,.6);
+	color: rgba(173,216,230,0.6);
+	width: 96%;
+	margin-left: 2%;
+	height: 10px;
+	border: none;
+	margin-bottom: 10px;
+}
+
+.buffering_bar::-moz-progress-bar {
+	background-color: rgba(173,216,230,0.6);
+}
+
+.buffering_bar::-webkit-progress-bar {
+	background: rgba(100,100,100,.6);
+}
+
+.buffering_bar::-webkit-progress-value {
+	background: rgba(173,216,230,0.6);
+}
+
+.progress_bar {
+	-webkit-appearance: none;
+	display: block;
+	width: 96%;
+	margin-left: 2%;
+	height: 10px;
+	margin-bottom: 10px;
+	border: none;
+
+	position: absolute;
+	left: 0;
+	top: 0px;
+
+	background: rgba(0,0,0,0);
+	color: goldenrod;
+}
+
+.progress_bar::-moz-progress-bar {
+	background-color: goldenrod;
+	border: none;
+}
+
+.progress_bar::-webkit-progress-bar {
+	background: rgba(0,0,0,0);
+}
+
+.progress_bar::-webkit-progress-value {
+	background: goldenrod;
+}
+
+
+
+/* CONTROLS
+============*/
+
+.controls_div {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.left_side_controls,
+.right_side_controls {
+	display: inline-block;
+}
+
+.left_side_controls {
+	width: 50%;
+}
+
+.right_side_controls {
+	width: 202px;
+}
+
+.play_button,
+.pause_button,
+.rewind_icon,
+.fast_forward_icon {
+	width: 21px;
+	height: 24px;
+	cursor: pointer;
+}
+
+.timestamp,
+.captions_icon,
+.playback_speed {
+	position: relative;
+	top: -6px;
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+.timestamp,
+.playback_speed {
+	cursor: default;
+}
+
+.playback_speed {
+	display: inline-block;
+	font-size: 22px;
+	top: -4px;
+	width: 30px;
+	margin-left: 5px;
+}
+
+.captions_icon {
+	background: rgba(10,10,10,.4);
+	cursor: pointer;
+	height: 23px;
+	top: -4px;
+}
+
+.rewind_icon {
+	margin-right: 1%;
+}
+
+.volume_off_icon,
+.volume_on_icon {
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.volume_slider_form {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 100px;
+}
+
+.volume_slider {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+	margin-bottom: 5px;
+	color: transparent;
+
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 16px;
+  width: 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.fullscreen_icon {
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+
+
+
+/* TRANSCRIPT
+==============*/
+
+.transcript {
+	max-width: 80%;
+	margin: 0 auto;
+	cursor: default;
+}
+
+
+
+/* CREATIVE AND THOUGHTFUL RESPONSIVE DESIGN
+============================================= */
+
+@media (max-width: 1000px) {
+	.transcript {
+		max-width: 90%;
+	}
+}
+
+
+/* Dealing with the control bar on very small screen widths. */
+
+@media (max-width: 450px) {
+	.play_button,
+	.pause_button,
+	.rewind_icon,
+	.fast_forward_icon {
+		width: 14px;
+		height: 16px;
+		position: relative;
+		top: 5px;
+	}
+
+	.volume_on_icon,
+	.volume_off_icon,
+	.fullscreen_icon {
+		position: relative;
+		top: 1px;
+		width: 14px;
+		height: 16px;
+	}
+
+	.timestamp,
+	.captions_icon,
+	.playback_speed {
+		top: 2px;
+		font-size: 14px;
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+
+	.playback_speed {
+		margin-right: 0;
+		padding: 0;
+		width: 18px;
+	}
+
+	.captions_icon {
+		margin-left: 0;
+		top: -2px;
+	}
+
+	.volume_slider_form {
+		max-width: 55px;
+	}
+
+	.volume_slider {
+		position: relative;
+		top: 3px;
+		max-width: 55px;
+	}
+
+	.fullscreen_icon {
+		top: 0px;
+		margin-right: 0;
+	}
+
+	.right_side_controls {
+		max-width: 130px;
+		margin: 0;
+	}
+
+	.left_side_controls {
+		width: 155px;
+		margin: 0;
+	}
+}
+
+@media (max-width: 300px) {
+	.rewind_icon,
+	.fast_forward_icon,
+	.playback_speed {
+		display: none;
+	}
+
+	.volume_slider,
+	.volume_slider_form {
+		max-width: 40px;
+	}
+
+	.right_side_controls {
+		max-width: 200px;
+	}
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+  		<meta charset="utf-8">
+  		<title>Claudiu Bancos' Interactive Video Player Project</title>
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<link rel="stylesheet" href="css/normalize.css">
+  		<link rel="stylesheet" href="css/styles.css">
+	</head>
+
+	<body>
+
+		<div class="video_div">
+			<video controls id="video">
+				<source src="video/video.mp4" type="video/mp4">
+				<source src="video/video.ogg" type="video/ogg">
+				<track src="video/video.vtt" class="captions_track" label="Captions" kind="subtitles" default srclang="en">
+			</video>
+			<div class="progress_and_controls">
+				<div class="progress_bars_div">
+					<progress class="buffering_bar" max="59" value="0"></progress>
+					<progress class="progress_bar" max="59" value="0"></progress>
+				</div>
+				<div class="controls_div">
+					<div class="left_side_controls">
+						<img class="play_button" src="icons/play-icon.png" alt="Play icon">
+						<img class="pause_button hidden" src="icons/pause-icon.png" alt="Pause icon">
+						<span class="timestamp">0:00</span>
+						<img class="rewind_icon" src="icons/rewind-icon.png" alt="Rewind icon for slowing down playback speed">
+						<img class="fast_forward_icon" src="icons/fast-forward-icon.png" alt="Fast forward icon for speeding up playback speed">
+						<div class="playback_speed">
+							<span>1x</span>
+						</div>
+					</div>
+					<div class="right_side_controls">
+						<span class="captions_icon">CC</span>
+						<img class="volume_on_icon" src="icons/volume-on-icon.png" alt="Volume icon indicating volume is on">
+						<img class="volume_off_icon hidden" src="icons/volume-off-icon.png" alt="Volume icon indicating volume is off">
+						<form class="volume_slider_form" action="index.html" method="post">
+							<input class="volume_slider" type="range" name="volume" min="0" max="1000" value="300">
+						</form>
+						<img class="fullscreen_icon" src="icons/fullscreen-icon.png" alt="Fullscreen icon">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="transcript">
+			<p><span class="cue_span" id="C1">Now that we've looked at the architecture of the internet, let's see how you might</span> <span class="cue_span" id="C2">connect your personal devices to the internet inside your house.</span></p>
+			<p><span class="cue_span" id="C3">Well there are many ways to connect to the internet, and</span> <span class="cue_span" id="C4">most often people connect wirelessly.</span> <span class="cue_span" id="C5">Let's look at an example of how you can connect to the internet.</span></p>
+			<p><span class="cue_span" id="C6">If you live in a city or a town, you probably have a coaxial cable for</span> <span class="cue_span" id="C7">cable Internet, or a phone line if you have DSL, running to the outside of</span> <span class="cue_span" id="C8">your house, that connects you to the Internet Service Provider, or ISP.</span> <span class="cue_span" id="C9">If you live far out in the country, you'll more likely have</span> <span class="cue_span" id="C10">a dish outside your house, connecting you wirelessly to your closest ISP, or</span> <span class="cue_span" id="C11">you might also use the telephone system.</span></p>
+			<p><span class="cue_span" id="C12">Whether a wire comes straight from the ISP hookup outside your house, or</span> <span class="cue_span" id="C13">it travels over radio waves from your roof,</span> <span class="cue_span" id="C14">the first stop a wire will make once inside your house, is at your modem.</span> <span class="cue_span" id="C15">A modem is what connects the internet to your network at home.</span> <span class="cue_span" id="C16">A few common residential modems are DSL or....</span></p>
+		</div>
+
+		<script src="js/jquery-3.1.0.min.js"></script>
+		<script src="js/scripts.js"></script>
+
+	</body>
+
+</html>
